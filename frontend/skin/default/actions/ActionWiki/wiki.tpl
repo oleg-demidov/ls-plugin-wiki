@@ -23,10 +23,11 @@
 {/block}
 
 {block 'layout_content'}
-    <ul>
-        {foreach $aCategories as $oCategory}
-            <li>
-                <a href="{router page="wiki/{$oCategory->getUrlFull()}"}">{$oCategory->getTitle()}</a>
+    
+    <ul class="nav flex-column">
+        {foreach $oWiki->getPages() as $oPage}
+            <li class="nav-item">
+                <a class="nav-link" href="{router page="wiki/{$oWiki->getCode()}/{$oPage->getCode()}"}">{$oPage->getTitle()}</a>
             </li>
         {/foreach}
     </ul>

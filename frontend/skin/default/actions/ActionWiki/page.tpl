@@ -21,14 +21,18 @@
         {$oWiki->getTitle()}
     </h2>
     <h3>
-        {$oCategory->getTitle()}
+        {$oPage->getTitle()}
     </h3>
 {/block}
 
 {block 'layout_content'}
     <article class="ls-topic topic js-topic">
-        {foreach $aWikipages as $oWikipage}
-            {component 'topic.type' topic=$oWikipage}
+        {foreach $oPage->getPunkts() as $oPunkt}
+            <div class="d-flex"> 
+                <div class="mr-1"><b>{$oPunkt->getName()}.</b></div>
+                <div><p>{$oPunkt->getText()}</p></div>
+            </div>
+            
         {/foreach}
     </article>
 {/block}
