@@ -30,7 +30,7 @@ $config['$root$']['block']['wiki_panel'] = array(
     'clear'  => false,
 );
 
-$config['$root$']['jevix'] = array_merge_recursive((array)Config::Get('jevix'), require(dirname(__FILE__) . '/jevix.php'));
+//$config['$root$']['jevix'] = array_merge_recursive((array)Config::Get('jevix'), require(dirname(__FILE__) . '/jevix.php'));
 
 //$config['jevix']['default'] =  [
 //    'cfgAllowTags'          => array(

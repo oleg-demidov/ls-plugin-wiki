@@ -28,11 +28,11 @@
 {block 'layout_content'}
     <article class="ls-topic topic js-topic">
         {foreach $oPage->getPunkts() as $oPunkt}
-            <div class="d-flex"> 
-                <div class="mr-1"><b>{$oPunkt->getName()}.</b></div>
-                <div><p>{$oPunkt->getText()}</p></div>
-            </div>
-            
+            {component "wiki:punkt" oPunkt=$oPunkt classes="mt-4"}
         {/foreach}
     </article>
+{/block}
+
+{block "layout_modals" append}
+    {component "bs-modal" id="punktModal" content="punkt"}
 {/block}

@@ -29,4 +29,7 @@ class PluginWiki_ModuleWiki_EntityPunkt extends EntityORM
         return $this->_getDataOne('topic_id');
     }
    
+    public function getUrlEdit() {
+        return Router::GetPath('admin/plugin/wiki/page/signs/punkt_edit/'. $this->getId());
+    }
 }

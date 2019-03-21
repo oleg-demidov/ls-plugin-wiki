@@ -1,0 +1,8 @@
+{
+    "name": "punkt",
+    "version": "1.0.0",
+    
+    "scripts": {
+        "punkt":"js/punkt.js"
+    }
+}

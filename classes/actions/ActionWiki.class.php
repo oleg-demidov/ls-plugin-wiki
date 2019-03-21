@@ -30,9 +30,7 @@ class PluginWiki_ActionWiki extends ActionPlugin
             'code' => Router::GetActionEvent(),
         ]);
         
-        if(!$this->oWiki){
-            return Router::ActionError($this->Lang_Get('plugin.wiki.messages.no_wiki'));
-        }
+        
         
     }
 
@@ -46,10 +44,14 @@ class PluginWiki_ActionWiki extends ActionPlugin
                 '/^([a-z_0-9]{1,100})?$/i', '/^$/i', ['EventWiki', 'wiki']
         );
         $this->AddEventPreg( '/^([a-z_0-9]{1,100})?$/i',  '/^([a-z_0-9]{1,100})?$/i',['EventPage', 'wikipage']);
+        $this->AddEventPreg( '/^ajax-punkt?$/i', 'EventAjaxPunkt');
            
     }
     
     public function EventPage() {
+        if(!$this->oWiki){
+            return Router::ActionError($this->Lang_Get('plugin.wiki.messages.no_wiki'));
+        }
         
         if(!$oPage = $this->PluginWiki_Wiki_GetPageByCode($this->GetParam(0))){
             return Router::ActionError($this->Lang_Get('plugin.wiki.messages.no_wiki'));
@@ -62,12 +64,26 @@ class PluginWiki_ActionWiki extends ActionPlugin
     
     
     public function EventWiki() {
+        if(!$this->oWiki){
+            return Router::ActionError($this->Lang_Get('plugin.wiki.messages.no_wiki'));
+        }
         
         $this->SetTemplateAction('wiki');        
         $this->Viewer_Assign('oWiki', $this->oWiki);
-        
-        
+                
     }
     
+    public function EventAjaxPunkt() {
+        $this->SetTemplateAction(false); 
+        $this->Viewer_SetResponseAjax('json');$this->Logger_Notice( 'hjhjhj');
+        
+        if(!$oPunkt = $this->PluginWiki_Wiki_GetPunktByName(getRequest('punkt'))){
+            return false;
+        }
 
+        $this->Viewer_Assign('gp', 1);
+        $VLocal = $this->Viewer_GetLocalViewer();
+        $VLocal->Assign('oPunkt', $oPunkt, true);
+        $this->Viewer_AssignAjax('html', $VLocal->Fetch("component@wiki:punkt"));
+    }
 }

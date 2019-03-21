@@ -51,12 +51,12 @@ class PluginWiki_ActionAdmin_EventPunkt extends Event
             $oPunkt->_setData(getRequest('punkt'));
                                    
             if($oPunkt->_Validate()){ 
-                $oPunkt->setText($this->Text_Parser($oPunkt->getTextSource()));
+                $oPunkt->setText($this->PluginWiki_Wiki_ParsePunkt($oPunkt->getTextSource()));
                 
                 if($oPunkt->Save()){
                     
                     $this->Message_AddNoticeSingle($this->Lang_Get('common.success.save'),'',true);
-                    //Router::LocationAction("admin/plugin/wiki/page/". $this->oPage->getCode() . '/list');
+                    Router::LocationAction("admin/plugin/wiki/page/". $this->oPage->getCode() . '/list');
                     
                 }else{
                     $this->Message_AddErrorSingle($this->Lang_Get('common.error.system.base'));

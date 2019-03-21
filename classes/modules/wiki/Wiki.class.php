@@ -20,13 +20,18 @@ class PluginWiki_ModuleWiki extends ModuleORM
      */
     public function CallbackParserTagWiki($sTag, $aParams)
     {
-        $sText = '';        $this->Logger_Notice($sTag . print_r($aParams,true));
+        $sText = '';
         if (isset($aParams['punkt'])) {
             if($oPunkt = $this->PluginWiki_Wiki_GetPunktByFilter(['name' => $aParams['punkt']])){
-                $sText .= "<a href=\"{$oPunkt->getPage()->getUrl()}#p{$aParams['punkt']}\" class=\"wikipage-url-ajax\">{$oPunkt->getName()}</a> ";
+                $sText .= "<a href=\"{$oPunkt->getPage()->getUrl()}#punkt{$aParams['punkt']}\" data-wiki-punkt>{$oPunkt->getName()}</a> ";
             }
         }
         return $sText;
     }
     
+    public function ParsePunkt($sText, &$aError = null) {
+        $this->Text_LoadJevixConfig('punkt');
+        $sResult = $this->Text_GetJevix()->parse($sText, $aError);
+        return $sResult;
+    }
 }
