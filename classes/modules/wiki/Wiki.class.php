@@ -26,6 +26,7 @@ class PluginWiki_ModuleWiki extends ModuleORM
                 $sText .= "<a href=\"{$oPunkt->getPage()->getUrl()}#punkt{$aParams['punkt']}\" data-wiki-punkt>{$oPunkt->getName()}</a> ";
             }
         }
+        $this->Logger_Notice($sTag.' - '.$sText.' - '. print_r($oPunkt,true));
         return $sText;
     }
     

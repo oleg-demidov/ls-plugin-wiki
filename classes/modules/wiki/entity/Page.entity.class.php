@@ -28,5 +28,9 @@ class PluginWiki_ModuleWiki_EntityPage extends EntityORM
     public function getCountPunkts() {
         return count($this->getPunkts());
     }
+    
+    public function getUrl() {
+        return '/wiki/'.$this->getWiki()->getCode().'/'.$this->getCode();
+    }
    
 }

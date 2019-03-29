@@ -51,7 +51,7 @@ class PluginWiki_ActionAdmin_EventPunkt extends Event
             $oPunkt->_setData(getRequest('punkt'));
                                    
             if($oPunkt->_Validate()){ 
-                $oPunkt->setText($this->PluginWiki_Wiki_ParsePunkt($oPunkt->getTextSource()));
+                $oPunkt->setText($this->Text_Parser($oPunkt->getTextSource()));
                 
                 if($oPunkt->Save()){
                     

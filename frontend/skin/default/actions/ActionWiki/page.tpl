@@ -27,9 +27,11 @@
 
 {block 'layout_content'}
     <article class="ls-topic topic js-topic">
-        {foreach $oPage->getPunkts() as $oPunkt}
-            {component "wiki:punkt" oPunkt=$oPunkt classes="mt-4"}
-        {/foreach}
+        <div class="d-table">
+            {foreach $oPage->getPunkts() as $oPunkt}
+                {component "wiki:punkt" oPunkt=$oPunkt classes="mt-4 "}
+            {/foreach}
+        </div>
     </article>
 {/block}
 
