@@ -22,7 +22,6 @@ class PluginWiki extends Plugin
             'plugin.wiki.markitup.punkt'
         ]);
         
-        $this->Component_Add('wiki:editor');
         $this->Component_Add('wiki:punkt');
         
         $this->Viewer_AppendScript(Plugin::GetTemplatePath('wiki'). '/assets/js/init.js');
