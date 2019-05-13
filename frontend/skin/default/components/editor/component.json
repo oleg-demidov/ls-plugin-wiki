@@ -5,7 +5,8 @@
         "ls-vendor": "*",
         "ls-core": "*",
         "ls-component": "*",
-        "css-reset": "*"
+        "css-reset": "*",
+        "bs-media":"*"
     },
     "templates": {
         "markup-help": "editor.markup.help.tpl"

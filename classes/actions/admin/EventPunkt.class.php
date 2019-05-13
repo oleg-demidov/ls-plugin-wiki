@@ -39,6 +39,8 @@ class PluginWiki_ActionAdmin_EventPunkt extends Event
     
     public function EventAdd() {
         
+        $this->Component_Add('tinymce');    
+        
         $this->SetTemplateAction('punkt-add'); 
         
         $oPunkt = $this->PluginWiki_Wiki_GetPunktById( $this->GetParam(2) );
