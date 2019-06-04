@@ -7,11 +7,12 @@
     form=[
         [ field => 'hidden',     name => 'punkt[page_id]',  value => $oPage->getId() ],
         [ field => 'text',     name => 'punkt[name]',  label => 'Номер' ],
-        {component 'wiki:editor'  
-            inputClasses="js-editor-default"
-            mediaTargetType="user"
-            mediaTargetId=$oUserCurrent->getId()
+        {component 'tinymce'  
             value={($oPunkt)?$oPunkt->getTextSource():''}  
             name = 'punkt[text_source]'  
             label = 'Текст'}
 ]}
+
+{block 'layout_footer_end'}
+
+{/block}
