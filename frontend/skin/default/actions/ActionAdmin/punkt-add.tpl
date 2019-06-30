@@ -10,7 +10,7 @@
         {component 'tinymce'  
             value={($oPunkt)?$oPunkt->getTextSource():''}  
             name = 'punkt[text_source]'  
-            label = 'Текст'}
+            label = 'Текст:'}
 
         
 ]}

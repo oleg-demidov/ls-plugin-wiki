@@ -33,4 +33,7 @@ class PluginWiki_ModuleWiki_EntityPage extends EntityORM
         return '/wiki/'.$this->getWiki()->getCode().'/'.$this->getCode();
     }
    
+    public function getUrlEdit() {
+        return Router::GetPath('admin/plugin/wiki/'.$this->getWiki()->getCode().'/page_edit/'. $this->getId());
+    }
 }

@@ -22,9 +22,9 @@ class PluginWiki_ActionWiki extends ActionPlugin
         
         $this->oUserCurrent = $this->User_GetUserCurrent();
         
-        if(!$this->oUserCurrent and Router::GetParam(0) !== 'index'){
-            return Router::Action(Router::GetAction(), Router::GetActionEvent(), ['index']);
-        }
+//        if(!$this->oUserCurrent and Router::GetParam(0) !== 'index'){
+//            return Router::Action(Router::GetAction(), Router::GetActionEvent(), ['index']);
+//        }
         
         $this->oWiki = $this->PluginWiki_Wiki_GetWikiByFilter([
             'code' => Router::GetActionEvent(),

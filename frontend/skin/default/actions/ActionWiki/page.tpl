@@ -21,7 +21,17 @@
         {$oWiki->getTitle()}
     </h2>
     <h3>
-        {$oPage->getTitle()}
+        {$oPage->getTitle()} 
+        {if $oUserCurrent and $oUserCurrent->isAdmin()}
+            {component "bs-button" 
+                classes = "btn-edit d-inline"
+                com     = "link"
+                url     = $oPage->getUrlEdit()
+                text    = {component "bs-icon" icon="edit"}
+                popover = [content => $aLang.common.edit] }
+        {/if}
+
+        
     </h3>
 {/block}
 
