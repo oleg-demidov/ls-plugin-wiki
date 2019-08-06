@@ -17,6 +17,8 @@ $config['admin']['assets'] = [
     ]
 ];
 
+$config['$root$']['head']['default']['js'][] = Plugin::GetTemplatePath('wiki').'/assets/js/init.js';
+
 
 $config['$root$']['block']['wiki_panel'] = array(
     'action' => array(

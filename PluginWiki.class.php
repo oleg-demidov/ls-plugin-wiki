@@ -24,7 +24,6 @@ class PluginWiki extends Plugin
         
         $this->Component_Add('wiki:punkt');
         
-        $this->Viewer_AppendScript(Plugin::GetTemplatePath('wiki'). '/assets/js/init.js');
     }
 
     public function Activate()

@@ -1,13 +1,13 @@
 {
     "name": "editor",
     "version": "1.0.0",
-    "dependencies": {
-        "ls-vendor": "*",
-        "ls-core": "*",
-        "ls-component": "*",
-        "css-reset": "*",
-        "bs-media":"*"
-    },
+    "dependencies": [
+        "ls-vendor",
+        "ls-core",
+        "ls-component",
+        "css-reset",
+        "bs-media"
+    ],
     "templates": {
         "markup-help": "editor.markup.help.tpl"
     },
